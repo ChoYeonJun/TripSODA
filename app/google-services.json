@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "619302274958",
+    "firebase_url": "https://tripsoda-d0e4a.firebaseio.com",
+    "project_id": "tripsoda-d0e4a",
+    "storage_bucket": "tripsoda-d0e4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619302274958:android:da2743a68652d079bc06df",
+        "android_client_info": {
+          "package_name": "com.example.tripsoda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619302274958-pla2gm37lbpvgcvlgqnavrjkge6ufvt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk5Wn1O25aTYPkIsP7ibjOoxX497LrAv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619302274958-pla2gm37lbpvgcvlgqnavrjkge6ufvt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

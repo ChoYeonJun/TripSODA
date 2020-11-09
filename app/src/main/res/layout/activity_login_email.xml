@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/input_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/page_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#13AA1A"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingTop="30sp"
+            android:paddingBottom="30sp"
+            android:text="@string/input_emailEditText_name"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:background="#D4DCEC">
+
+        <Button
+            android:id="@+id/contact_call_btn"
+            android:layout_width="82dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="8dp"
+            android:background="#00FFFFFF"
+            android:text="@string/input_call_btn"
+            android:textColor="#08650C"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/info_text"
+            app:layout_constraintTop_toBottomOf="@+id/password_editText" />
+
+        <Button
+            android:id="@+id/contact_email_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_marginTop="8dp"
+            android:background="#00FFFFFF"
+            android:text="@string/input_email_btn"
+            android:textColor="#08650C"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/contact_call_btn"
+            app:layout_constraintTop_toBottomOf="@+id/password_editText" />
+
+        <EditText
+            android:id="@+id/email_editText"
+            android:layout_width="320dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="30dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Email"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="#08650C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/password_editText"
+            android:layout_width="320dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="30dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Password"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="#08650C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_editText" />
+
+        <TextView
+            android:id="@+id/info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/input_ask_text"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_editText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="#13AA1A"
+            android:src="@drawable/abc_vector_test" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#13AA1A" />
+
+        <ImageButton
+            android:id="@+id/login_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="#13AA1A"
+            android:scaleX="-1"
+            android:src="@drawable/abc_vector_test" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

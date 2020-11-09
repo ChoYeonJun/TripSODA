@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TripSODA</string>
+    <string name="input_call_btn">전화문의</string>
+    <string name="input_email_btn">이메일 상담</string>
+    <string name="input_ask_text">구매코드가 기억이 안나세요?</string>
+    <string name="input_codeEditText_name">구매코드 입력</string>
+    <string name="input_codeTitle_text">구매코드</string>
+    <string name="input_emailTitle_text">로그인</string>
+    <string name="input_emailEditText_name">Email</string>
+    <string name="input_passwordEditText_name">비밀번호</string>
+    <string name="input_passwordCheckEditText_name">비밀번호 확인</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
