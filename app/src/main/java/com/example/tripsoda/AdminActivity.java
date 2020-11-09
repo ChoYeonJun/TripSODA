@@ -1,5 +1,6 @@
 package com.example.tripsoda;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.HashMap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +28,7 @@ public class AdminActivity extends AppCompatActivity {
 
     Button register_btn;
     FirebaseAuth firebaseAuth;
-
+    DatabaseReference reference;
     String TAG = "Email Sent";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +62,29 @@ public class AdminActivity extends AppCompatActivity {
                                         if (task.isSuccessful()) {
                                             Log.d(TAG, "Email sent");
                                             FirebaseUser user = firebaseAuth.getCurrentUser();
-//                                String email = user.getEmail();
-//                                String uid = user.getUid();
-//
-//                                HashMap<Object, String> hashMap = new HashMap<>();
-//
-//                                hashMap.put("uid", uid);
-//                                hashMap.put("email", email);
+
+                                            HashMap<String, String> hashMap = new HashMap<>();
+                                            hashMap.put("장소", "영월");
+                                            hashMap.put("시간", "7월9일 오전9시 출발");
+                                            hashMap.put("순서", "1");
+                                            hashMap.put("소요 시간", "5");
+
+
+
+                                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Intent intent = new Intent( getApplicationContext(), MainActivity.class);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }else{
+                                                        Toast.makeText(getApplicationContext(), "reference error ", Toast.LENGTH_SHORT).show();
+                                                        Log.d("reference exception", "onComplete: Failed=" + task.getException().getMessage());
+                                                    }
+                                                }
+                                            });
                                             Toast.makeText(getApplicationContext(), "Registration Success",
                                                     Toast.LENGTH_SHORT).show();
 
