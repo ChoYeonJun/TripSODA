@@ -1,5 +1,6 @@
 package com.example.tripsoda;
 
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -15,9 +16,12 @@ import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment mapFragment;
     Fragment messageFragment;
     Fragment settingFragment;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,37 +53,49 @@ public class MainActivity extends AppCompatActivity {
         mapFragment = new Fragment();
         messageFragment = new Fragment();
         settingFragment = new Fragment();
-
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        initMenuTitle();
+//        bottomNavigationView.set
+//        bottomNavigationView.setItemIconTintList(ColorStateList.valueOf(Color.parseColor("#13AA1A")));
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.home_tab:
-                                Toast.makeText(getApplicationContext(), "첫 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
+                                setBottomMenuAllTitle();
+                                setBottomMenuNontitle(R.id.home_tab);
+//                                Toast.makeText(getApplicationContext(), "첫 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
 
                                 return true;
                             case R.id.schedule_tab:
-                                Toast.makeText(getApplicationContext(), "두 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
+                                setBottomMenuAllTitle();
+                                setBottomMenuNontitle(R.id.schedule_tab);
+//                                Toast.makeText(getApplicationContext(), "두 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, scheduleFragment).commit();
 
                                 return true;
                             case R.id.map_tab:
-                                Toast.makeText(getApplicationContext(), "세 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
+                                setBottomMenuAllTitle();
+                                setBottomMenuNontitle(R.id.map_tab);
+//                                Toast.makeText(getApplicationContext(), "세 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, mapFragment).commit();
 
                                 return true;
                             case R.id.message_tab:
-                                Toast.makeText(getApplicationContext(), "네 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
+                                setBottomMenuAllTitle();
+                                setBottomMenuNontitle(R.id.message_tab);
+//                                Toast.makeText(getApplicationContext(), "네 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, messageFragment).commit();
 
                                 return true;
                             case R.id.setting_tab:
-                                Toast.makeText(getApplicationContext(), "다섯 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
+                                setBottomMenuAllTitle();
+                                setBottomMenuNontitle(R.id.setting_tab);
+//                                Toast.makeText(getApplicationContext(), "다섯 번째 탭 선택 됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, settingFragment).commit();
 
                                 return true;
@@ -92,6 +109,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void setBottomMenuAllTitle(){
+        bottomNavigationView.getMenu().findItem(R.id.home_tab).setTitle("home");
+        bottomNavigationView.getMenu().findItem(R.id.schedule_tab).setTitle("schedule");
+        bottomNavigationView.getMenu().findItem(R.id.map_tab).setTitle("map");
+        bottomNavigationView.getMenu().findItem(R.id.message_tab).setTitle("message");
+        bottomNavigationView.getMenu().findItem(R.id.setting_tab).setTitle("setting");
+    }
+    public void setBottomMenuNontitle(int res){
+        bottomNavigationView.getMenu().findItem(res).setTitle("");
+    }
+    public void initMenuTitle(){
+        bottomNavigationView.getMenu().findItem(R.id.home_tab).setTitle("");
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

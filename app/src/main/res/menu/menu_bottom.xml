@@ -7,11 +7,12 @@
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/home"
-        android:title="home"/>
+        android:title="home">
+
+        </item>
 
     <item
         android:id="@+id/schedule_tab"
-        app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/schedule"
         android:title="schedule"/>
@@ -21,7 +22,6 @@
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/map"
-
         android:title="map"/>
 
     <item
